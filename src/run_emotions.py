@@ -16,6 +16,7 @@ class Emotion_Handler:
 
 		self.tts = gTTS(text='Hello, and thank you for using me.', lang='en');
 
+		self.myState = emotion();
 
 
 	def sad(self):
@@ -57,8 +58,19 @@ class Emotion_Handler:
 	def fear(self):
 		pass;
 
+	def run_func(self):
+		if self.myState == 'happy':
+			self.happy();
+		elif self.myState == 'sad':
+			self.sad();
+		elif self.myState == 'neutral':
+			self.neutral();
+		else:
+			self.angry();
+
 
 if __name__ == '__main__':
 	j = Emotion_Handler();
-	j.angry()
+	j.run_func();
+	
 	
